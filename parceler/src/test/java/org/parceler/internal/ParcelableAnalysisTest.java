@@ -68,6 +68,22 @@ public class ParcelableAnalysisTest {
         }
     }
 
+    @Parcel
+    static abstract class AbstractParcel{}
+
+    @Test
+    public void testAbstractParcel() {
+        errors(AbstractParcel.class);
+    }
+
+    @Parcel
+    interface InterfaceParcel{}
+
+    @Test
+    public void tesInterfaceParcel() {
+        errors(InterfaceParcel.class);
+    }
+
     @Parcel(describeContents = 42)
     static class DescribedContents {}
 
